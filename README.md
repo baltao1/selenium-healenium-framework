@@ -27,6 +27,23 @@ handler is bound by tag/class, so the *page* still works — only the Selenium
 locator is broken, which is exactly the real-world scenario self-healing solves.
 **If run 2 is green, healing genuinely happened.**
 
+### Proof from the CI log
+
+The heal run recovers the broken locator automatically — straight from the
+GitHub Actions output:
+
+```
+[main] WARN healenium - Trying to heal...
+[main] WARN healenium - Using healed locator:
+        Scored(score=0.857, value=By.cssSelector: button#login-submit)
+...
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+```
+
+`By.id("btn-login")` was healed to `button#login-submit` at an 0.86 similarity
+score, and both tests passed against a page where the original locator no longer
+exists.
+
 ## What it demonstrates
 
 - **Self-healing locators** — `SelfHealingDriver.create(delegate)` transparently
