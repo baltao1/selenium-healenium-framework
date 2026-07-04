@@ -32,6 +32,17 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- TestNG declares Guice as optional and modern Selenium no longer
+             bundles it, but healenium's StackUtils force-loads TestNG internals
+             that reference com.google.inject.Injector. Without Guice on the
+             classpath every findElement throws NoClassDefFoundError. -->
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>5.1.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
