@@ -43,6 +43,15 @@
             <version>5.1.0</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Bind SLF4J so healenium's healing messages ("Trying to heal...",
+             healed locator + score) actually print in the test/CI output. -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.36</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
