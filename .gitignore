@@ -1,0 +1,9 @@
+target/
+healenium/
+screenshots/
+logs/
+db-data/
+*.log
+.idea/
+*.iml
+.DS_Store

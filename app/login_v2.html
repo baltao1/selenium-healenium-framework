@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!-- "Broken" page: the ONLY change vs v1 is the login button id
+     ("btn-login" -> "login-submit"). Everything else (tag, text, name, class,
+     type) is identical, so healenium can score it as the same element and heal
+     the By.id("btn-login") locator. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+  </head>
+  <body>
+    <main>
+      <h1>Sign in</h1>
+      <form>
+        <label>Username <input id="username" name="username" type="text" /></label>
+        <label>Password <input id="password" name="password" type="password" /></label>
+        <button id="login-submit" name="login" type="submit" class="login primary">Login</button>
+      </form>
+      <p id="message"></p>
+    </main>
+    <script src="login.js"></script>
+  </body>
+</html>
