@@ -45,6 +45,16 @@
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
+                <!-- healenium-web drags JUnit 5 onto the classpath, so surefire
+                     would otherwise auto-pick the JUnit Platform provider and run
+                     ZERO of our TestNG tests. Pin the TestNG provider explicitly. -->
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-testng</artifactId>
+                        <version>${surefire.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
